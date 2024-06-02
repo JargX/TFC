@@ -88,7 +88,7 @@ public class VentaDAO {
                 System.out.println(e.toString());
             }
         }
-        return 1;// Devuelve 0 en caso de error
+        return 1;// Retorna 1 para indicar que la operación fue exitosa
     }
 
     /**

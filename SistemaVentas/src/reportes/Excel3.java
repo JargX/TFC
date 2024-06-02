@@ -21,13 +21,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  *
  * @author joelr
- * 
+ *
  * Clase para generar reportes en formato Excel utilizando Apache POI.
  */
 public class Excel3 {
 
     /**
-     * Método estático para generar un reporte de proveedores en un archivo Excel.
+     * Método estático para generar un reporte de proveedores en un archivo
+     * Excel.
      */
     public static void reporte() {
         Workbook book = new XSSFWorkbook(); // Crear un libro de trabajo Excel
@@ -73,7 +74,7 @@ public class Excel3 {
             sheet.addMergedRegion(new CellRangeAddress(1, 2, 1, 3));
 
             // Encabezados de las columnas
-            String[] cabecera = new String[]{"ID", "NIF", "Nombre", "Teléfono", "Dirección", "Correo", "Razón"};
+            String[] cabecera = new String[]{"NIF", "Nombre", "Teléfono", "Dirección", "Correo", "Razón"};
 
             // Estilo para los encabezados
             CellStyle headerStyle = book.createCellStyle();
@@ -115,7 +116,7 @@ public class Excel3 {
             datosEstilo.setBorderRight(BorderStyle.THIN);
             datosEstilo.setBorderBottom(BorderStyle.THIN);
 
-            ps = conn.prepareStatement("SELECT id, nif, nombre, telefono, direccion, correo, razon FROM proveedor");
+            ps = conn.prepareStatement("SELECT nif, nombre, telefono, direccion, correo, razon FROM proveedor");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -132,7 +133,7 @@ public class Excel3 {
 
                 numFilaDatos++;
             }
-            
+
             // Ajustar el tamaño de las columnas automáticamente
             for (int i = 0; i < cabecera.length; i++) {
                 sheet.autoSizeColumn(i);
@@ -162,4 +163,3 @@ public class Excel3 {
         }
     }
 }
-

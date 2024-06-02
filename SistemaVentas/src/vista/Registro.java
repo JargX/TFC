@@ -86,6 +86,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCorreo.setToolTipText("Introduzca el correo electrónico para el registro del nuevo usuario.");
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -99,6 +100,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 456, 200, -1));
 
         txtContrasena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtContrasena.setToolTipText("Introduzca la contraseña para el registro del nuevo usuario.");
         txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContrasenaKeyPressed(evt);
@@ -107,7 +109,8 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 455, 220, -1));
 
         btnInicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnInicio.setText("REGISTRARSE");
+        btnInicio.setText("REGISTRAR");
+        btnInicio.setToolTipText("Botón Registrar, haga clic con los campos llenos para registra el usuario.");
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -119,6 +122,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 6, 250, 250));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setToolTipText("Introduzca el nombre para el registro del nuevo usuario.");
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 342, 220, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -143,6 +147,7 @@ public class Registro extends javax.swing.JFrame {
 
         cbxRol.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Vendedor", "Almacén" }));
+        cbxRol.setToolTipText("Seleccione el rol para el registro del nuevo usuario.");
         jPanel2.add(cbxRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 512, 220, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

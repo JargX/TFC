@@ -107,9 +107,6 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         switch (adm.getRol()) {
             case "Vendedor":
                 txtNombreVendedor.setText(adm.getNombre());// Rellena el textField con el nombre del usuario que haya iniciado sesión
-                btnGuardarCliente.setVisible(false);
-                btnActualizarCliente.setVisible(false);
-                btnEliminarCliente.setVisible(false);
                 btnProveedores.setVisible(false);
                 btnDarAlta.setVisible(false);
                 btnGuardarProducto.setVisible(false);
@@ -142,24 +139,25 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     /**
      * MÉTODOS PARA LISTAR DENTRO DE LAS TABLAS O TEXTFIELDS
      */
-   public void listarClientes() {
-    List<Cliente> ListarCl = cliente.ListaClientes();
-    modelo = (DefaultTableModel) tablaClientes.getModel();
-    modelo.setRowCount(0); // Limpia todas las filas existentes
-    Object[] ob = new Object[7];
+    public void listarClientes() {
+        List<Cliente> ListarCl = cliente.ListaClientes();
+        modelo = (DefaultTableModel) tablaClientes.getModel();
+        modelo.setRowCount(0); // Limpia todas las filas existentes
+        Object[] ob = new Object[7];
 
-    for (Cliente cl : ListarCl) {
-        ob[0] = cl.getId();
-        ob[1] = cl.getDni();
-        ob[2] = cl.getNombre();
-        ob[3] = cl.getTelefono();
-        ob[4] = cl.getDireccion();
-        ob[5] = cl.getCorreo();
-        ob[6] = cl.getRazon();
-        modelo.addRow(ob);
+        for (Cliente cl : ListarCl) {
+            ob[0] = cl.getId();
+            ob[1] = cl.getDni();
+            ob[2] = cl.getNombre();
+            ob[3] = cl.getTelefono();
+            ob[4] = cl.getDireccion();
+            ob[5] = cl.getCorreo();
+            ob[6] = cl.getRazon();
+            modelo.addRow(ob);
+        }
+        tablaClientes.setModel(modelo);
     }
-    tablaClientes.setModel(modelo);
-}
+
     public void listarProveedor() {
         List<Proveedor> ListarPr = proveedor.ListaProveedores();// Obtiene y almacena la lista de Provedores
         modelo = (DefaultTableModel) tablaProveedores.getModel();// Obtiene el modelo para poder añadir luego las filas a la tabla
@@ -212,32 +210,32 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     }
 
     public void listarVentas() {
-    // Obtener el nombre del vendedor del textField
-    String nombreVendedor = txtNombreVendedor.getText();
+        // Obtener el nombre del vendedor del textField
+        String nombreVendedor = txtNombreVendedor.getText();
 
-    // Obtener la lista de ventas del vendedor
-    List<Venta> ListarVenta = venta.ListaVentas(nombreVendedor);
-    modelo2 = (DefaultTableModel) tablaVentas.getModel();
-    modelo2.setRowCount(0); // Limpiar la tabla antes de agregar las nuevas filas
-    Object[] ob = new Object[4];
+        // Obtener la lista de ventas del vendedor
+        List<Venta> ListarVenta = venta.ListaVentas(nombreVendedor);
+        modelo2 = (DefaultTableModel) tablaVentas.getModel();
+        modelo2.setRowCount(0); // Limpiar la tabla antes de agregar las nuevas filas
+        Object[] ob = new Object[4];
 
-    // Recorrer la lista de ventas y añadir filas a la tabla
-    for (int i = 0; i < ListarVenta.size(); i++) {
-        ob[0] = ListarVenta.get(i).getId();
-        ob[1] = ListarVenta.get(i).getCliente();
-        ob[2] = ListarVenta.get(i).getVendedor();
-        ob[3] = ListarVenta.get(i).getTotal();
-        modelo2.addRow(ob);
+        // Recorrer la lista de ventas y añadir filas a la tabla
+        for (int i = 0; i < ListarVenta.size(); i++) {
+            ob[0] = ListarVenta.get(i).getId();
+            ob[1] = ListarVenta.get(i).getCliente();
+            ob[2] = ListarVenta.get(i).getVendedor();
+            ob[3] = ListarVenta.get(i).getTotal();
+            modelo2.addRow(ob);
+        }
+        tablaVentas.setModel(modelo2);
     }
-    tablaVentas.setModel(modelo2);
-}
+
     /**
      * METODOS PARA LIMPIAR LAS TABLAS Y PODER ACTUALIZARLAS LUEGO.
      */
     public void limpiarTabla() {
-    modelo.setRowCount(0); // Elimina todas las filas del modelo de la tabla
-}
-
+        modelo.setRowCount(0); // Elimina todas las filas del modelo de la tabla
+    }
 
     public void limpiarTablaVenta() {
         for (int i = 0; i < modelo2.getRowCount(); i++) {
@@ -293,10 +291,6 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         txtDireccionCV.setText("");
         txtTelefonoCV.setText("");
         txtRazonCV.setText("");
-    }
-    
-    public void limpiarBuscarCliente(){
-        txtBuscarCliente.setText("");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -855,6 +849,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaClientes.setToolTipText("Tabla clientes.");
         tablaClientes.setRowHeight(30);
         tablaClientes.getTableHeader().setReorderingAllowed(false);
         tablaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -877,6 +872,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnGuardarCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar-el-archivo.png"))); // NOI18N
         btnGuardarCliente.setText("GUARDAR");
+        btnGuardarCliente.setToolTipText("Boton Guardar. Haga clic con los campos llenos para guardar un nuevo cliente.");
         btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarClienteActionPerformed(evt);
@@ -887,6 +883,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnActualizarCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnActualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar-flecha.png"))); // NOI18N
         btnActualizarCliente.setText("ACTUALIZAR");
+        btnActualizarCliente.setToolTipText("Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un cliente.");
         btnActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarClienteActionPerformed(evt);
@@ -897,6 +894,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnEliminarCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnEliminarCliente.setText("ELIMINAR");
+        btnEliminarCliente.setToolTipText("Boton Eliminar. Seleccione un registro y  haga clic para eliminar un cliente.");
         btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarClienteActionPerformed(evt);
@@ -907,6 +905,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnLimpiarCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLimpiarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-nuevo.png"))); // NOI18N
         btnLimpiarCliente.setText("LIMPIAR");
+        btnLimpiarCliente.setToolTipText("Boton Limpiar. Limpia los campos para darle un nuevo uso.");
         btnLimpiarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarClienteActionPerformed(evt);
@@ -915,6 +914,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel3.add(btnLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 730, 200, 50));
 
         txtBuscarCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtBuscarCliente.setToolTipText("Introduzca DNI, Nombre o Telefono para buscar el registro.");
         txtBuscarCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarClienteKeyReleased(evt);
@@ -925,6 +925,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnExportarExcelClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExportarExcelClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-excel.png"))); // NOI18N
         btnExportarExcelClientes.setText("EXPORTAR");
+        btnExportarExcelClientes.setToolTipText("Boton Exportar. Haga clic para exportar la tabla a excel.");
         btnExportarExcelClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarExcelClientesActionPerformed(evt);
@@ -973,9 +974,11 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 425, 120, 40));
 
         txtNIFProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtNIFProveedor.setToolTipText("Se introduce o se muestra el NIF del proveedor.");
         jPanel4.add(txtNIFProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 250, 40));
 
         txtNombreProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtNombreProveedor.setToolTipText("Se introduce o se muestra el nombre del proveedor.");
         txtNombreProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreProveedorKeyTyped(evt);
@@ -984,6 +987,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel4.add(txtNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 250, 40));
 
         txtTelefonoProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtTelefonoProveedor.setToolTipText("Se introduce o se muestra el teléfono del proveedor.");
         txtTelefonoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoProveedorKeyTyped(evt);
@@ -992,12 +996,15 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel4.add(txtTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 250, 40));
 
         txtDireccionProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtDireccionProveedor.setToolTipText("Se introduce o se muestra la dirección del proveedor.");
         jPanel4.add(txtDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 425, 250, 40));
 
         txtCorreoProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtCorreoProveedor.setToolTipText("Se introduce o se muestra el correo del proveedor.");
         jPanel4.add(txtCorreoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 250, 40));
 
         txtRazonProveedor.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtRazonProveedor.setToolTipText("Se introduce o se muestra la razón del proveedor.");
         jPanel4.add(txtRazonProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 575, 250, 40));
 
         txtIdProveedor.setEditable(false);
@@ -1020,7 +1027,9 @@ public class SistemaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaProveedores.setToolTipText("Tabla proveedores.");
         tablaProveedores.setRowHeight(30);
+        tablaProveedores.getTableHeader().setReorderingAllowed(false);
         tablaProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaProveedoresMouseClicked(evt);
@@ -1042,6 +1051,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnGuardarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar-el-archivo.png"))); // NOI18N
         btnGuardarProveedor.setText("GUARDAR");
+        btnGuardarProveedor.setToolTipText("Boton Guardar. Haga clic con los campos llenos para guardar un nuevo proveedor.");
         btnGuardarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarProveedorActionPerformed(evt);
@@ -1052,6 +1062,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnActualizarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnActualizarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar-flecha.png"))); // NOI18N
         btnActualizarProveedor.setText("ACTUALIZAR");
+        btnActualizarProveedor.setToolTipText("Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un proveedor.");
         btnActualizarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarProveedorActionPerformed(evt);
@@ -1062,6 +1073,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnEliminarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEliminarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnEliminarProveedor.setText("ELIMINAR");
+        btnEliminarProveedor.setToolTipText("Boton Eliminar. Seleccione un registro y  haga clic para eliminar un proveedor.");
         btnEliminarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarProveedorActionPerformed(evt);
@@ -1072,6 +1084,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnLimpiarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLimpiarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-nuevo.png"))); // NOI18N
         btnLimpiarProveedor.setText("LIMPIAR");
+        btnLimpiarProveedor.setToolTipText("Boton Limpiar. Limpia los campos para darle un nuevo uso.");
         btnLimpiarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarProveedorActionPerformed(evt);
@@ -1085,6 +1098,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 575, 120, 40));
 
         txtBuscarProveedor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtBuscarProveedor.setToolTipText("Introduzca NIF, Nombre o Telefono para buscar el registro.");
         txtBuscarProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarProveedorKeyReleased(evt);
@@ -1095,6 +1109,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnExportarExcelProveedores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExportarExcelProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-excel.png"))); // NOI18N
         btnExportarExcelProveedores.setText("EXPORTAR");
+        btnExportarExcelProveedores.setToolTipText("Boton Exportar. Haga clic para exportar la tabla a excel.");
         btnExportarExcelProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarExcelProveedoresActionPerformed(evt);
@@ -1115,6 +1130,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jTabbedPane1.addTab("Proveedores", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(250, 239, 214));
+        jPanel5.setToolTipText("Tabla productos.");
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -1144,15 +1160,19 @@ public class SistemaPrincipal extends javax.swing.JFrame {
 
         cbxProveedorProducto.setEditable(true);
         cbxProveedorProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        cbxProveedorProducto.setToolTipText("Se introduce o se muestra el proveedor del producto.");
         jPanel5.add(cbxProveedorProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 250, 40));
 
         txtCodigoProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtCodigoProducto.setToolTipText("Se introduce o se muestra el código del producto.");
         jPanel5.add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 250, 40));
 
         txtNombreProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtNombreProducto.setToolTipText("Se introduce o se muestra la descripción del producto.");
         jPanel5.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 250, 40));
 
         txtCantidadProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtCantidadProducto.setToolTipText("Se introduce o se muestra la cantidad del producto.");
         txtCantidadProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCantidadProductoKeyTyped(evt);
@@ -1161,6 +1181,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel5.add(txtCantidadProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 250, 40));
 
         txtPrecioProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtPrecioProducto.setToolTipText("Se introduce o se muestra el precio del producto.");
         txtPrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPrecioProductoKeyTyped(evt);
@@ -1188,19 +1209,30 @@ public class SistemaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaProductos.setToolTipText("Tabla Productos.");
         tablaProductos.setRowHeight(30);
+        tablaProductos.getTableHeader().setReorderingAllowed(false);
         tablaProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaProductosMouseClicked(evt);
             }
         });
         jScrollPane4.setViewportView(tablaProductos);
+        if (tablaProductos.getColumnModel().getColumnCount() > 0) {
+            tablaProductos.getColumnModel().getColumn(0).setResizable(false);
+            tablaProductos.getColumnModel().getColumn(1).setResizable(false);
+            tablaProductos.getColumnModel().getColumn(2).setResizable(false);
+            tablaProductos.getColumnModel().getColumn(3).setResizable(false);
+            tablaProductos.getColumnModel().getColumn(4).setResizable(false);
+            tablaProductos.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 125, 1500, 800));
 
         btnGuardarProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar-el-archivo.png"))); // NOI18N
         btnGuardarProducto.setText("GUARDAR");
+        btnGuardarProducto.setToolTipText("Boton Guardar. Haga clic con los campos llenos para guardar un nuevo producto.");
         btnGuardarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarProductoActionPerformed(evt);
@@ -1211,6 +1243,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnActualizarProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnActualizarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar-flecha.png"))); // NOI18N
         btnActualizarProducto.setText("ACTUALIZAR");
+        btnActualizarProducto.setToolTipText("Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un producto.");
         btnActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarProductoActionPerformed(evt);
@@ -1221,6 +1254,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnEliminarProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEliminarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnEliminarProducto.setText("ELIMINAR");
+        btnEliminarProducto.setToolTipText("Boton Eliminar. Seleccione un registro y haga clic para eliminar un producto.");
         btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarProductoActionPerformed(evt);
@@ -1231,6 +1265,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnLimpiarProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLimpiarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-nuevo.png"))); // NOI18N
         btnLimpiarProducto.setText("LIMPIAR");
+        btnLimpiarProducto.setToolTipText("Boton Limpiar. Limpia los campos para darle un nuevo uso.");
         btnLimpiarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarProductoActionPerformed(evt);
@@ -1241,6 +1276,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnExportarExcelProductos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExportarExcelProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-excel.png"))); // NOI18N
         btnExportarExcelProductos.setText("EXPORTAR");
+        btnExportarExcelProductos.setToolTipText("Boton Exportar. Haga clic para exportar la tabla a excel.");
         btnExportarExcelProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarExcelProductosActionPerformed(evt);
@@ -1249,6 +1285,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel5.add(btnExportarExcelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1550, 35, 200, 40));
 
         txtBuscarProducto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtBuscarProducto.setToolTipText("Introduzca Código, Nombre para buscar el registro.");
         txtBuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarProductoKeyReleased(evt);
@@ -1258,6 +1295,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
 
         btnFormInsertarProductos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnFormInsertarProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregarProducto.png"))); // NOI18N
+        btnFormInsertarProductos.setToolTipText("Boton Añadir mas productos. Haga clic para abrir la ventana del fomulario de añadir productos.");
         btnFormInsertarProductos.setLabel("AÑADIR PRODUCTOS");
         btnFormInsertarProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1314,6 +1352,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 268, 1920, 750));
 
         btnPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivo-pdf.png"))); // NOI18N
+        btnPDF.setToolTipText("Boton PDF. Seleccione una venta y haga clic para abrirla.");
         btnPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPDFActionPerformed(evt);
@@ -1328,10 +1367,12 @@ public class SistemaPrincipal extends javax.swing.JFrame {
 
         txtIdVentas.setEditable(false);
         txtIdVentas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtIdVentas.setToolTipText("");
         jPanel6.add(txtIdVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 135, 30));
 
         txtNombreVendedor.setEditable(false);
         txtNombreVendedor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombreVendedor.setToolTipText("Nombre del vendedor");
         jPanel6.add(txtNombreVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1530, 220, 370, 30));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -1377,9 +1418,11 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel7.add(txtIdConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, -1));
 
         txtNIFConfig.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNIFConfig.setToolTipText("Se introduce o se muestra el NIF de la configuración.");
         jPanel7.add(txtNIFConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 146, 290, 40));
 
         txtNombreConfig.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNombreConfig.setToolTipText("Se introduce o se muestra el nombre de la configuración.");
         txtNombreConfig.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreConfigKeyTyped(evt);
@@ -1388,6 +1431,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel7.add(txtNombreConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 150, 290, 40));
 
         txtTelefonoConfig.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtTelefonoConfig.setToolTipText("Se introduce o se muestra el teléfono de la configuración.");
         txtTelefonoConfig.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoConfigKeyTyped(evt);
@@ -1396,14 +1440,17 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         jPanel7.add(txtTelefonoConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(1215, 150, 290, 40));
 
         txtDireccionConfig.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDireccionConfig.setToolTipText("Se introduce o se muestra el dirección de la configuración.");
         jPanel7.add(txtDireccionConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 286, 290, 40));
 
         txtMensajeConfig.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtMensajeConfig.setToolTipText("Se introduce o se muestra el mensaje de la configuración.");
         jPanel7.add(txtMensajeConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 286, 290, 40));
 
         btnActualizarConfig.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnActualizarConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar-flecha.png"))); // NOI18N
         btnActualizarConfig.setText("ACTUALIZAR DATOS");
+        btnActualizarConfig.setToolTipText("Boton Actualizar Datos. Modifique los campos deseados y haga clic para actualizar los datos.");
         btnActualizarConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarConfigActionPerformed(evt);
@@ -1414,6 +1461,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         btnDarAlta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDarAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         btnDarAlta.setText("DAR DE ALTA USUARIOS");
+        btnDarAlta.setToolTipText("Boton Dar de Alta Usuarios. Solo para administradores, haga clic para abrir el registro de usuarios,");
         btnDarAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDarAltaActionPerformed(evt);
@@ -2057,7 +2105,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
 
     private void txtBuscarClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarClienteKeyReleased
         buscarCliente(txtBuscarCliente.getText());
-        
+
     }//GEN-LAST:event_txtBuscarClienteKeyReleased
 
     private void txtBuscarProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProveedorKeyReleased
@@ -2081,7 +2129,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExportarExcelProveedoresActionPerformed
 
     private void btnFormInsertarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormInsertarProductosActionPerformed
-        jTabbedPane1.setSelectedIndex(0);// Selecciona la pestaña con el índice 0 y lo muestra
+        jTabbedPane1.setSelectedIndex(2);// Selecciona la pestaña con el índice 2 y lo muestra
         InsertarProductos ip = new InsertarProductos();
         ip.setVisible(true);
     }//GEN-LAST:event_btnFormInsertarProductosActionPerformed
@@ -2164,7 +2212,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
                 if (cantidad > 0) {
                     item = item + 1;
                     modelo2 = (DefaultTableModel) tablaVenta.getModel();
-                    // Verifica si el porducto ya esta registrado
+                    // Verifica si el producto ya esta registrado
                     for (int i = 0; i < tablaVenta.getRowCount(); i++) {
                         if (tablaVenta.getValueAt(i, 1).equals(txtDescripcionVenta.getText())) {
                             JOptionPane.showMessageDialog(null, "El producto ya esta registrado.");
@@ -2428,11 +2476,13 @@ public class SistemaPrincipal extends javax.swing.JFrame {
         DefaultTableModel modelo = Buscar.buscarClientes(buscar);
         tablaClientes.setModel(modelo);
     }
+
     public void buscarProveedor(String buscar) {
         BuscarDAO Buscar = new BuscarDAO();
         DefaultTableModel modelo = Buscar.buscarProveedores(buscar);
         tablaProveedores.setModel(modelo);
     }
+
     public void buscarProducto(String buscar) {
         BuscarDAO Buscar = new BuscarDAO();
         DefaultTableModel modelo = Buscar.buscarProductos(buscar);

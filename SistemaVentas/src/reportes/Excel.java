@@ -21,7 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  *
  * @author joelr
- * 
+ *
  * Clase para generar reportes en formato Excel utilizando Apache POI.
  */
 public class Excel {
@@ -132,7 +132,7 @@ public class Excel {
 
                 numFilaDatos++;
             }
-            
+
             // Ajustar el tamaño de las columnas automáticamente
             sheet.autoSizeColumn(0);
             sheet.autoSizeColumn(1);

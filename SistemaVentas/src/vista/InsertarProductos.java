@@ -18,10 +18,10 @@ public class InsertarProductos extends javax.swing.JFrame {
     /**
      * Creates new form InsertarProductos
      */
-    public List<Productos> listaProductos = new ArrayList<>();
-    public DefaultTableModel modelo;
-    public ProductosDAO productosDAO = new ProductosDAO();
-    public Validaciones val = new Validaciones();
+    List<Productos> listaProductos = new ArrayList<>();
+    DefaultTableModel modelo;
+    ProductosDAO productosDAO = new ProductosDAO();
+    Validaciones val = new Validaciones();
 
     public InsertarProductos() {
         initComponents();
@@ -94,7 +94,7 @@ public class InsertarProductos extends javax.swing.JFrame {
         btnEliminarProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnEliminarProducto.setText("ELIMINAR PRODUCTO");
-        btnEliminarProducto.setToolTipText("Botón Eliminar producto. Seleccione haciendo click un producto dentro de la lista para eliminarlo de la lista.");
+        btnEliminarProducto.setToolTipText("Botón Eliminar producto. Seleccione haciendo clic a un producto dentro de la lista para eliminarlo de la lista.");
         btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarProductoActionPerformed(evt);
@@ -103,7 +103,7 @@ public class InsertarProductos extends javax.swing.JFrame {
         jPanel2.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 250, -1, 50));
 
         txtCodigoProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtCodigoProducto.setToolTipText("Se introduce el código de un producto, tecla Enter o Botón Lupa para buscarlo y añadirlo para pasar a la cantidad de este. ");
+        txtCodigoProducto.setToolTipText("Se introduce el código de un nuevo producto.");
         txtCodigoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCodigoProductoKeyPressed(evt);
@@ -112,12 +112,12 @@ public class InsertarProductos extends javax.swing.JFrame {
         jPanel2.add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 200, 35));
 
         txtDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtDescripcionProducto.setToolTipText("Muestra la descripción del producto, no editable.");
+        txtDescripcionProducto.setToolTipText("Se introduce la descripción de un nuevo producto.");
         jPanel2.add(txtDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 300, 35));
 
         txtCantidadProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCantidadProducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidadProducto.setToolTipText("Se introduce la cantidad del producto que se haya buscado,  tecla Enter o Botón Insertar para añadir esa cantidad del producto a la lista/venta.");
+        txtCantidadProducto.setToolTipText("Se introduce la cantidad de un nuevo producto.");
         txtCantidadProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCantidadProductoKeyPressed(evt);
@@ -130,7 +130,7 @@ public class InsertarProductos extends javax.swing.JFrame {
 
         txtPrecioProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPrecioProducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPrecioProducto.setToolTipText("Muestra el precio unitario del producto. No editable.");
+        txtPrecioProducto.setToolTipText("Se introduce el precio de un nuevo producto.");
         txtPrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPrecioProductoKeyTyped(evt);
@@ -140,11 +140,12 @@ public class InsertarProductos extends javax.swing.JFrame {
 
         cbxProveedorProducto.setEditable(true);
         cbxProveedorProducto.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        cbxProveedorProducto.setToolTipText("Se introduce el proveedor de un nuevo producto.");
         jPanel2.add(cbxProveedorProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1025, 140, 250, 35));
 
         btnRegistrarProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegistrarProducto.setText("INSERTAR");
-        btnRegistrarProducto.setToolTipText("Botón de generar venta. Cuando se hayan introducido todos los productos elegidos, la cantidad y el cliente al que se le atribuya la venta, pulsa el boton para generar el documento PDF con la informacion de la venta.");
+        btnRegistrarProducto.setToolTipText("Boton Insertar. Haga clic para añadir el producto a la tabla.");
         btnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarProductoActionPerformed(evt);
@@ -155,6 +156,7 @@ public class InsertarProductos extends javax.swing.JFrame {
         btnGuardarySalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardarySalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar-el-archivo.png"))); // NOI18N
         btnGuardarySalir.setText("GUARDAR Y SALIR");
+        btnGuardarySalir.setToolTipText("Botón de Guardar y Salir. Haga clic en este boton para guardar todos los productos que esten en la tabla y cerrar la ventana.");
         btnGuardarySalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarySalirActionPerformed(evt);
@@ -179,6 +181,7 @@ public class InsertarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaProductos.setToolTipText("Tabla con los productos a añadir.");
         tablaProductos.setRowHeight(30);
         tablaProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -231,25 +234,30 @@ public class InsertarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaProductosMouseClicked
 
     private void btnGuardarySalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarySalirActionPerformed
+        // Verifica si la lista de productos no está vacía
         if (!listaProductos.isEmpty()) {
+            // Recorre la lista
             for (Productos producto : listaProductos) {
-                productosDAO.RegistarProducto(producto);
+                productosDAO.RegistarProducto(producto);// Registra el producto
             }
             JOptionPane.showMessageDialog(this, "Productos guardados exitosamente");
-            dispose();
+            dispose();// Cierra la ventana actual
         } else {
             JOptionPane.showMessageDialog(this, "No hay productos para guardar");
         }
     }//GEN-LAST:event_btnGuardarySalirActionPerformed
     private void agregarProducto() {
         try {
+            // Obtiene los datos ingresados por el usuario en los campos de texto y combo box
             String codigo = txtCodigoProducto.getText();
             String nombre = txtDescripcionProducto.getText();
             int cantidad = Integer.parseInt(txtCantidadProducto.getText());
             double precio = Double.parseDouble(txtPrecioProducto.getText());
             String proveedorProducto = (String) cbxProveedorProducto.getSelectedItem();
-
+            
+            // Crea un nuevo objeto Producto con los datos obtenidos
             Productos producto = new Productos(0, codigo, nombre, cantidad, proveedorProducto, cantidad, precio);
+            // Añade el producto a la lista de productos
             listaProductos.add(producto);
 
             Object[] fila = new Object[6];
@@ -260,6 +268,7 @@ public class InsertarProductos extends javax.swing.JFrame {
             fila[4] = producto.getPrecio();
             fila[5] = producto.getProveedorProducto();
 
+            // Añade la fila al modelo de la tabla
             modelo.addRow(fila);
 
             limpiarCampos();

@@ -890,6 +890,7 @@
                         <Column editable="false" title="RAZON SOCIAL" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Tabla clientes."/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
@@ -949,6 +950,7 @@
                   <Image iconType="3" name="/img/guardar-el-archivo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="GUARDAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Guardar. Haga clic con los campos llenos para guardar un nuevo cliente."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarClienteActionPerformed"/>
@@ -968,6 +970,7 @@
                   <Image iconType="3" name="/img/actualizar-flecha.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un cliente."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarClienteActionPerformed"/>
@@ -987,6 +990,7 @@
                   <Image iconType="3" name="/img/eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Eliminar. Seleccione un registro y  haga clic para eliminar un cliente."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarClienteActionPerformed"/>
@@ -1006,6 +1010,7 @@
                   <Image iconType="3" name="/img/archivo-nuevo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Limpiar. Limpia los campos para darle un nuevo uso."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarClienteActionPerformed"/>
@@ -1021,6 +1026,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Introduzca DNI, Nombre o Telefono para buscar el registro."/>
               </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarClienteKeyReleased"/>
@@ -1040,6 +1046,7 @@
                   <Image iconType="3" name="/img/archivo-excel.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="EXPORTAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Exportar. Haga clic para exportar la tabla a excel."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarExcelClientesActionPerformed"/>
@@ -1173,6 +1180,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el NIF del proveedor."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1185,6 +1193,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el nombre del proveedor."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreProveedorKeyTyped"/>
@@ -1200,6 +1209,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el tel&#xe9;fono del proveedor."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTelefonoProveedorKeyTyped"/>
@@ -1215,6 +1225,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra la direcci&#xf3;n del proveedor."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1227,6 +1238,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el correo del proveedor."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1239,6 +1251,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra la raz&#xf3;n del proveedor."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1284,6 +1297,7 @@
                         <Column editable="false" title="RAZ&#xd3;N SOCIAL" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Tabla proveedores."/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
@@ -1325,7 +1339,7 @@
                     </Property>
                     <Property name="rowHeight" type="int" value="30"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1343,6 +1357,7 @@
                   <Image iconType="3" name="/img/guardar-el-archivo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="GUARDAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Guardar. Haga clic con los campos llenos para guardar un nuevo proveedor."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarProveedorActionPerformed"/>
@@ -1362,6 +1377,7 @@
                   <Image iconType="3" name="/img/actualizar-flecha.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un proveedor."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarProveedorActionPerformed"/>
@@ -1381,6 +1397,7 @@
                   <Image iconType="3" name="/img/eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Eliminar. Seleccione un registro y  haga clic para eliminar un proveedor."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarProveedorActionPerformed"/>
@@ -1400,6 +1417,7 @@
                   <Image iconType="3" name="/img/archivo-nuevo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Limpiar. Limpia los campos para darle un nuevo uso."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarProveedorActionPerformed"/>
@@ -1429,6 +1447,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Introduzca NIF, Nombre o Telefono para buscar el registro."/>
               </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarProveedorKeyReleased"/>
@@ -1448,6 +1467,7 @@
                   <Image iconType="3" name="/img/archivo-excel.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="EXPORTAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Exportar. Haga clic para exportar la tabla a excel."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarExcelProveedoresActionPerformed"/>
@@ -1493,6 +1513,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d6" green="ef" red="fa" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Tabla productos."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -1585,6 +1606,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el proveedor del producto."/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1600,6 +1622,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el c&#xf3;digo del producto."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1612,6 +1635,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra la descripci&#xf3;n del producto."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1624,6 +1648,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra la cantidad del producto."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidadProductoKeyTyped"/>
@@ -1639,6 +1664,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el precio del producto."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPrecioProductoKeyTyped"/>
@@ -1686,34 +1712,35 @@
                         <Column editable="false" title="PROVEEDOR" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Tabla Productos."/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -1722,7 +1749,7 @@
                     </Property>
                     <Property name="rowHeight" type="int" value="30"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1740,6 +1767,7 @@
                   <Image iconType="3" name="/img/guardar-el-archivo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="GUARDAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Guardar. Haga clic con los campos llenos para guardar un nuevo producto."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarProductoActionPerformed"/>
@@ -1759,6 +1787,7 @@
                   <Image iconType="3" name="/img/actualizar-flecha.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Actualizar. Seleccione un registro, haga los cambios deseados y haga clic con los campos llenos para actualizar un producto."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarProductoActionPerformed"/>
@@ -1778,6 +1807,7 @@
                   <Image iconType="3" name="/img/eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Eliminar. Seleccione un registro y haga clic para eliminar un producto."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarProductoActionPerformed"/>
@@ -1797,6 +1827,7 @@
                   <Image iconType="3" name="/img/archivo-nuevo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Limpiar. Limpia los campos para darle un nuevo uso."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarProductoActionPerformed"/>
@@ -1816,6 +1847,7 @@
                   <Image iconType="3" name="/img/archivo-excel.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="EXPORTAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Exportar. Haga clic para exportar la tabla a excel."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarExcelProductosActionPerformed"/>
@@ -1831,6 +1863,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Introduzca C&#xf3;digo, Nombre para buscar el registro."/>
               </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarProductoKeyReleased"/>
@@ -1849,6 +1882,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/agregarProducto.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Boton A&#xf1;adir mas productos. Haga clic para abrir la ventana del fomulario de a&#xf1;adir productos."/>
                 <Property name="label" type="java.lang.String" value="A&#xd1;ADIR PRODUCTOS"/>
               </Properties>
               <Events>
@@ -1970,6 +2004,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/archivo-pdf.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Boton PDF. Seleccione una venta y haga clic para abrirla."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPDFActionPerformed"/>
@@ -2000,6 +2035,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2013,6 +2049,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Nombre del vendedor"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2154,6 +2191,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el NIF de la configuraci&#xf3;n."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2166,6 +2204,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el nombre de la configuraci&#xf3;n."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreConfigKeyTyped"/>
@@ -2181,6 +2220,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el tel&#xe9;fono de la configuraci&#xf3;n."/>
               </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTelefonoConfigKeyTyped"/>
@@ -2196,6 +2236,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el direcci&#xf3;n de la configuraci&#xf3;n."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2208,6 +2249,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="16" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se introduce o se muestra el mensaje de la configuraci&#xf3;n."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2224,6 +2266,7 @@
                   <Image iconType="3" name="/img/actualizar-flecha.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR DATOS"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Actualizar Datos. Modifique los campos deseados y haga clic para actualizar los datos."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarConfigActionPerformed"/>
@@ -2243,6 +2286,7 @@
                   <Image iconType="3" name="/img/anadir.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="DAR DE ALTA USUARIOS"/>
+                <Property name="toolTipText" type="java.lang.String" value="Boton Dar de Alta Usuarios. Solo para administradores, haga clic para abrir el registro de usuarios,"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDarAltaActionPerformed"/>
