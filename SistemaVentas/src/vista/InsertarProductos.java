@@ -2,6 +2,7 @@ package vista;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Productos;
@@ -26,6 +27,7 @@ public class InsertarProductos extends javax.swing.JFrame {
     public InsertarProductos() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/img/cup-cake.png")).getImage());
         productosDAO.ConsultarProveedor(cbxProveedorProducto);
         modelo = (DefaultTableModel) tablaProductos.getModel();
         AutoCompleteDecorator.decorate(cbxProveedorProducto);// Autocompleta al escribir dentro del JComboBox

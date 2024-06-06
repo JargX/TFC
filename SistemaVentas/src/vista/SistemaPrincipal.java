@@ -27,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.BuscarDAO;
@@ -84,6 +85,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     public SistemaPrincipal(login adm) {
         initComponents();// Inicializa los componentes del formulario
         this.setLocationRelativeTo(null);// Centra la ventana en la pantalla
+         setIconImage(new ImageIcon(getClass().getResource("/img/cup-cake.png")).getImage());
 
         // Oculta elementos clave dentro del sistema
         txtIdCliente.setVisible(false);
@@ -113,6 +115,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
                 btnActualizarProducto.setVisible(false);
                 btnEliminarProducto.setVisible(false);
                 btnProveedores.setVisible(false);
+                btnFormInsertarProductos.setVisible(false);
                 break;
             case "Almacén":
 

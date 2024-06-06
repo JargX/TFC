@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.login;
 import modelo.loginDAO;
@@ -22,6 +23,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();// Inicializa los componentes del formulario
         this.setLocationRelativeTo(null);//Coloca la aplicación en el centro
+        setIconImage(new ImageIcon(getClass().getResource("/img/cup-cake.png")).getImage());
     }
 
     // Metodo para limpiar el registro
