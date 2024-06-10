@@ -61,6 +61,8 @@ public class InsertarProductos extends javax.swing.JFrame {
         tablaProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("INSERTAR DATOS");
+        setName("INSERTAR PRODUCTOS"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(250, 239, 214));
@@ -249,35 +251,40 @@ public class InsertarProductos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarySalirActionPerformed
     private void agregarProducto() {
-        try {
-            // Obtiene los datos ingresados por el usuario en los campos de texto y combo box
-            String codigo = txtCodigoProducto.getText();
-            String nombre = txtDescripcionProducto.getText();
-            int cantidad = Integer.parseInt(txtCantidadProducto.getText());
-            double precio = Double.parseDouble(txtPrecioProducto.getText());
-            String proveedorProducto = (String) cbxProveedorProducto.getSelectedItem();
-            
-            // Crea un nuevo objeto Producto con los datos obtenidos
-            Productos producto = new Productos(0, codigo, nombre, cantidad, proveedorProducto, cantidad, precio);
-            // Añade el producto a la lista de productos
-            listaProductos.add(producto);
+    try {
+        // Obtiene los datos ingresados por el usuario en los campos de texto y combo box
+        String codigo = txtCodigoProducto.getText();
+        String nombre = txtDescripcionProducto.getText();
+        int cantidad = Integer.parseInt(txtCantidadProducto.getText());
+        double precio = Double.parseDouble(txtPrecioProducto.getText());
+        String proveedorProducto = (String) cbxProveedorProducto.getSelectedItem();
 
-            Object[] fila = new Object[6];
-            fila[0] = listaProductos.size();  // ID ficticio basado en el tamaño de la lista
-            fila[1] = producto.getCodigo();
-            fila[2] = producto.getNombre();
-            fila[3] = producto.getStock();
-            fila[4] = producto.getPrecio();
-            fila[5] = producto.getProveedorProducto();
+        // Obtiene el ID del proveedor basado en el nombre del proveedor seleccionado
+        int idProveedor = productosDAO.obtenerIdProveedor(proveedorProducto);
 
-            // Añade la fila al modelo de la tabla
-            modelo.addRow(fila);
+        // Crea un nuevo objeto Producto con los datos obtenidos
+        Productos producto = new Productos(0, codigo, nombre, idProveedor, cantidad, precio);
+        
+        // Añade el producto a la lista de productos
+        listaProductos.add(producto);
 
-            limpiarCampos();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Verifique que los campos de cantidad y precio sean números válidos.");
-        }
+        Object[] fila = new Object[6];
+        fila[0] = listaProductos.size();  // ID ficticio basado en el tamaño de la lista
+        fila[1] = producto.getCodigo();
+        fila[2] = producto.getNombre();
+        fila[3] = producto.getStock();
+        fila[4] = producto.getPrecio();
+        fila[5] = proveedorProducto; // Muestra el nombre del proveedor en la tabla
+
+        // Añade la fila al modelo de la tabla
+        modelo.addRow(fila);
+
+        limpiarCampos();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Verifique que los campos de cantidad y precio sean números válidos.");
     }
+}
+
 
     private void limpiarCampos() {
         txtCodigoProducto.setText("");
