@@ -72,6 +72,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     Validaciones val = new Validaciones();
     DefaultTableModel modelo = new DefaultTableModel();
     DefaultTableModel modelo2 = new DefaultTableModel();
+    DefaultTableModel modelo3 = new DefaultTableModel();
     int item;
     double totalPagar = 0.00;
 
@@ -218,8 +219,8 @@ public class SistemaPrincipal extends javax.swing.JFrame {
 
         // Obtener la lista de ventas del vendedor
         List<Venta> ListarVenta = venta.ListaVentas(nombreVendedor);
-        modelo2 = (DefaultTableModel) tablaVentas.getModel();
-        modelo2.setRowCount(0); // Limpiar la tabla antes de agregar las nuevas filas
+        modelo3 = (DefaultTableModel) tablaVentas.getModel();
+        modelo3.setRowCount(0); // Limpiar la tabla antes de agregar las nuevas filas
         Object[] ob = new Object[4];
 
         // Recorrer la lista de ventas y añadir filas a la tabla
@@ -228,9 +229,9 @@ public class SistemaPrincipal extends javax.swing.JFrame {
             ob[1] = ListarVenta.get(i).getCliente();
             ob[2] = ListarVenta.get(i).getVendedor();
             ob[3] = ListarVenta.get(i).getTotal();
-            modelo2.addRow(ob);
+            modelo3.addRow(ob);
         }
-        tablaVentas.setModel(modelo2);
+        tablaVentas.setModel(modelo3);
     }
 
     /**
@@ -243,6 +244,12 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     public void limpiarTablaVenta() {
         for (int i = 0; i < modelo2.getRowCount(); i++) {
             modelo2.removeRow(i);
+            i = i - 1;
+        }
+    }
+    public void limpiarTablaVentas() {
+        for (int i = 0; i < modelo3.getRowCount(); i++) {
+            modelo3.removeRow(i);
             i = i - 1;
         }
     }
@@ -1503,7 +1510,7 @@ public class SistemaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        limpiarTablaVenta();
+        limpiarTablaVentas();
         listarVentas();
         jTabbedPane1.setSelectedIndex(4);// Selecciona la pestaña con el índice 4 y lo muestra
     }//GEN-LAST:event_btnVentasActionPerformed
@@ -1913,9 +1920,9 @@ public class SistemaPrincipal extends javax.swing.JFrame {
             // Verifica si se ha seleccionado una fila
             if (selectedRow != -1) {
                 // Obtiene el modelo de la tabla (permite manipular los datos de la tabla)
-                modelo = (DefaultTableModel) tablaVenta.getModel();
+                modelo2 = (DefaultTableModel) tablaVenta.getModel();
                 // Elimina la fila seleccionada del modelo de la tabla
-                modelo.removeRow(selectedRow);
+                modelo2.removeRow(selectedRow);
                 TotalPagar();
                 txtCodigoVenta.requestFocus();// Hace que el campo se ponga automaticamente para escribir en él
             } else {
